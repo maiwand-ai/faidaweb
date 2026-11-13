@@ -403,6 +403,9 @@ p { margin: 0 0 1em; }
 .hero__visual.reveal.is-in { transform: none; }
 
 /* ---------- responsive ---------- */
+@media (min-width: 1021px) and (max-width: 1240px) {
+  .device--laptop { right: 0; width: 92%; }
+}
 @media (max-width: 1020px) {
   .hero__inner, .split, .split--reverse { grid-template-columns: 1fr; }
   .hero__visual { height: 460px; max-width: 620px; margin-inline: auto; width: 100%; }
@@ -428,12 +431,18 @@ p { margin: 0 0 1em; }
   .hero__visual { height: 360px; }
   .device--laptop { right: -20px; top: 20px; }
   .device--phone { width: 140px; border-width: 6px; border-radius: 24px; }
+  .device--phone.device--tall { width: min(300px, 82%); border-width: 8px; border-radius: 34px; }
   .chip { font-size: .74rem; padding: .45rem .7rem; }
   .chip--2 { right: 0; }
   .chip--1 { bottom: 70px; }
   .cards3, .plans { grid-template-columns: 1fr; }
   .section { padding: 80px 0; }
   .lock-demo { padding: 1rem; }
+  .ld-label, .ld-stop-label { font-size: 28px; }
+  .ld-price { stroke-width: 7; }
+  .ld-stop { stroke-width: 5; }
+  .ld-target, .ld-entry { stroke-width: 2; }
+  .ld-dot { r: 12px; }
   .lock-demo__status { margin-left: 0; }
   .rotator__word { white-space: normal; }
   .billing__opt { padding: .55rem .9rem; }
