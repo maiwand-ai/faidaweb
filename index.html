@@ -7,7 +7,12 @@
   <meta name="description" content="FAIDA runs disciplined trading robots on your own MetaTrader 5 account. Tested strategies, profit protection on every trade, and your money never leaves your broker. Start free on a demo account.">
   <meta property="og:title" content="FAIDA · Trading robots that protect your account first">
   <meta property="og:description" content="Disciplined trading robots for MetaTrader 5. Start free on a demo account.">
-  <meta property="og:image" content="assets/logo.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://faidabot.com/assets/media/og-faida.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://faidabot.com/assets/media/og-faida.jpg">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +42,7 @@
     <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
     <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.54 21.69a.5.5 0 0 0 .94-.03l6.5-19a.5.5 0 0 0-.64-.64l-19 6.5a.5.5 0 0 0-.03.94l7.93 3.18a2 2 0 0 1 1.11 1.11z"/><path d="m21.85 2.15-10.94 10.93"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
   </svg>
 
@@ -82,7 +88,7 @@
           <p class="lead reveal">FAIDA runs disciplined, tested strategies on <strong>your own MetaTrader&nbsp;5 account</strong>. Every trade has a stop. Profits get locked in. Your money never leaves your broker.</p>
           <div class="hero__actions reveal">
             <a href="#pricing" class="btn btn--primary btn--lg magnetic">Start free on a demo account <span class="arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a>
-            <a href="#see-it" class="btn btn--ghost btn--lg"><span class="play"></span> See it work</a>
+            <a href="assets/media/faida-tour.mp4" class="btn btn--ghost btn--lg" data-tour><span class="play"></span> Watch the tour <span class="btn__meta">1:31</span></a>
           </div>
           <ul class="hero__trust reveal">
             <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span> 14-day free trial</li>
@@ -256,7 +262,7 @@
         </div>
         <div class="split__visual reveal" data-tilt>
           <div class="device device--phone device--tall">
-            <img src="assets/app-robot-types.png" alt="Choosing a robot type in FAIDA" loading="lazy">
+            <img src="assets/media/app-robot-types.jpg" width="640" height="1387" alt="Choosing a robot type in FAIDA: DCA, Grid, Momentum Rider and AI Trader" loading="lazy">
           </div>
         </div>
       </div>
@@ -303,6 +309,18 @@
           <div class="card reveal"><div class="card__icon"><svg class="i"><use href="#i-news"/></svg></div><h3>News &amp; session guard</h3><p>Robots step aside around major economic news and thin market opens.</p></div>
           <div class="card reveal card--danger"><div class="card__icon"><svg class="i"><use href="#i-power"/></svg></div><h3>Emergency stop</h3><p>One button closes every FAIDA trade and pauses new ones. Your own manual trades are never touched.</p></div>
         </div>
+
+        <div class="proof">
+          <p class="proof__label reveal">Straight from the app · demo account</p>
+          <figure class="proof__item reveal">
+            <img src="assets/media/account-risk.jpg" width="900" height="755" loading="lazy" alt="FAIDA account panel: equity, money at risk if every stop is hit, margin level and today's result against the daily loss limit">
+            <figcaption><strong>Risk you can see.</strong> What you'd lose if every stop were hit, your margin, and today against your daily loss limit, live from MetaTrader&nbsp;5.</figcaption>
+          </figure>
+          <figure class="proof__item reveal">
+            <img src="assets/media/safety-controls.jpg" width="900" height="707" loading="lazy" alt="FAIDA safety controls: pause new trades, and the emergency stop button">
+            <figcaption><strong>Stop in one tap.</strong> Pause new trades or hit the emergency stop from your PC or phone. Your own manual trades are never touched.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -348,6 +366,14 @@
           <p>Check robots, open trades and alerts from any phone. Every decision comes with a plain-English reason.</p>
         </div>
         <div class="feed-wrap reveal">
+          <figure class="reel">
+            <div class="reel__phone">
+              <video class="reel__video" muted loop playsinline preload="none" poster="assets/media/faida-reel-poster.jpg" aria-label="Short product reel: robots, strategies, pause or stop in one tap, news pauses">
+                <source src="assets/media/faida-reel.mp4" type="video/mp4">
+              </video>
+            </div>
+            <figcaption>Product reel · demo account</figcaption>
+          </figure>
           <div class="feed" role="img" aria-label="Illustration: a live feed of robot decisions, each with a plain-English reason">
             <div class="feed__head"><span class="mk-brand"><img src="assets/logo.svg" alt=""> FAIDA</span><span class="feed__live"><i></i> Live</span></div>
             <ul class="feed__list" aria-hidden="true"></ul>
@@ -486,6 +512,17 @@
       <p class="muted">© <span id="year"></span> FAIDA · faidabot.com</p>
     </div>
   </footer>
+
+  <div class="tour" role="dialog" aria-modal="true" aria-label="FAIDA product tour" hidden>
+    <div class="tour__backdrop" data-close></div>
+    <div class="tour__box">
+      <button class="tour__close" type="button" data-close aria-label="Close the tour"><svg class="i"><use href="#i-x"/></svg></button>
+      <video class="tour__video" controls playsinline preload="none" poster="assets/media/faida-tour-poster.jpg">
+        <source src="assets/media/faida-tour.mp4" type="video/mp4">
+      </video>
+      <p class="tour__note">Product tour · 1:31 · screens show a demo account</p>
+    </div>
+  </div>
 
   <div class="toast" role="status" aria-live="polite" hidden></div>
   <script src="script.js" defer></script>

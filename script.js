@@ -340,6 +340,42 @@
     }
   }
 
+  /* ---------- product tour player + looping reel ---------- */
+  const tour = $(".tour");
+  if (tour) {
+    const video = $(".tour__video", tour);
+    const closeBtn = $(".tour__close", tour);
+    let opener = null;
+    const close = () => {
+      video.pause();
+      tour.hidden = true;
+      document.body.classList.remove("is-locked");
+      if (opener) opener.focus();
+    };
+    $$("[data-tour]").forEach((btn) => btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      opener = btn;
+      tour.hidden = false;
+      document.body.classList.add("is-locked");
+      closeBtn.focus();
+      video.play().catch(() => {}); // the browser may require a second tap on some phones
+    }));
+    $$("[data-close]", tour).forEach((el) => el.addEventListener("click", close));
+    addEventListener("keydown", (e) => { if (e.key === "Escape" && !tour.hidden) close(); });
+  }
+
+  const reel = $(".reel__video");
+  if (reel) {
+    if (reduceMotion) {
+      reel.controls = true; // no autoplay; let people press play themselves
+    } else {
+      new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) reel.play().catch(() => { reel.controls = true; });
+        else reel.pause();
+      }, { threshold: 0.35 }).observe(reel);
+    }
+  }
+
   /* ---------- 3D tilt, magnetic buttons, spotlight cards (mouse only) ---------- */
   const finePointer = window.matchMedia("(pointer: fine)").matches;
   if (finePointer && !reduceMotion) {

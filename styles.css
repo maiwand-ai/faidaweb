@@ -26,6 +26,7 @@ body {
   font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
 img, video { max-width: 100%; display: block; }
+img { height: auto; } /* keep proportions when width/height attributes are set */
 a { color: var(--blue); text-decoration: none; }
 h1, h2, h3 { font-family: var(--display); line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.02em; }
 h1 { font-size: clamp(2.4rem, 5.4vw, 4.3rem); }
@@ -510,3 +511,53 @@ p { margin: 0 0 1em; }
 .nav.is-scrolled { background: rgba(0,0,0,.6); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); }
 
 @media (prefers-reduced-motion: reduce) { .card__icon, .feed-point > span { transition: none; } }
+
+
+/* =====================================================================
+   Media: product tour player, looping reel, real app screens
+   ===================================================================== */
+.btn__meta { font-size: .8em; font-weight: 600; color: var(--muted); padding-left: .55rem; border-left: 1px solid rgba(255,255,255,.18); }
+
+/* tour player */
+.tour { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 64px 16px 24px; }
+.tour[hidden] { display: none; }
+.tour__backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, .85); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); animation: fadeIn .25s ease; }
+.tour__box { position: relative; width: min(1100px, 100%, calc((100vh - 140px) * 16 / 9)); animation: tourIn .35s cubic-bezier(.2, .8, .2, 1); }
+.tour__video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 18px; background: #000; border: 1px solid var(--line); box-shadow: 0 40px 120px -30px rgba(138, 180, 240, .4); }
+.tour__close { position: absolute; top: -52px; right: 0; width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.18); background: var(--surface); color: var(--text); display: grid; place-items: center; cursor: pointer; font-size: 20px; transition: border-color .2s ease, transform .2s ease; }
+.tour__close:hover { border-color: var(--blue); transform: rotate(90deg); }
+.tour__note { margin: .9rem 0 0; text-align: center; color: var(--muted); font-size: .85rem; }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes tourIn { from { opacity: 0; transform: translateY(16px) scale(.97); } }
+body.is-locked { overflow: hidden; }
+
+/* looping reel in a phone frame */
+.feed-wrap { grid-template-columns: auto 1fr 1fr; max-width: 1180px; gap: 2.5rem; }
+.reel { margin: 0; display: grid; justify-items: center; gap: .8rem; }
+.reel__phone { width: 260px; aspect-ratio: 9 / 16; border-radius: 38px; border: 8px solid #15171b; background: #000; overflow: hidden; box-shadow: var(--shadow), 0 0 80px -20px rgba(138, 180, 240, .35), inset 0 0 0 1px rgba(255,255,255,.06); }
+.reel__video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.reel figcaption { color: var(--muted); font-size: .8rem; }
+
+/* real app screens */
+.proof { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.6rem; }
+.proof__label { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; text-align: center; }
+.proof__item { margin: 0; padding: .9rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: inset 0 1px 0 rgba(255,255,255,.04); transition: border-color .3s ease, transform .3s ease; }
+.proof__item:hover { border-color: rgba(138, 180, 240, .35); transform: translateY(-4px); }
+.proof__item img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.proof__item figcaption { padding: 1rem .35rem .25rem; color: var(--muted); font-size: .95rem; }
+.proof__item figcaption strong { color: var(--text); }
+
+@media (max-width: 1020px) {
+  .feed-wrap { grid-template-columns: auto 1fr; }
+  .feed-side { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 860px) {
+  .proof { grid-template-columns: 1fr; }
+  .feed-side { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .feed-wrap { grid-template-columns: 1fr; }
+  .reel__phone { width: 230px; }
+  .tour { padding-top: 72px; }
+}
+@media (prefers-reduced-motion: reduce) { .tour__backdrop, .tour__box { animation: none; } }
