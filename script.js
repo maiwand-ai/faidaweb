@@ -99,7 +99,7 @@
     const GREEN = "rgba(111,220,140,1)", RED = "rgba(240,138,138,1)", BLUE = "rgba(138,180,240,1)";
     let w = 0, h = 0, dpr = 1, running = true;
     let candles = [], trades = [], idx = 0, progress = 0, nextTick = 0, last = 0, sinceTrade = 6;
-    let lo = 0, hi = 1, scaleReady = false, anchor = 0;
+    let lo = 0, hi = 1, scaleReady = false, anchor = 0, scale = 1;
     const visual = $(".hero__visual");
 
     const drift = (i) => Math.sin(i / 26) * 0.1 + Math.sin(i / 9) * 0.05 + 0.012;
@@ -144,12 +144,15 @@
 
     const resize = () => {
       dpr = Math.min(devicePixelRatio || 1, 2);
-      w = canvas.clientWidth; h = canvas.clientHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const cw = canvas.clientWidth, ch = canvas.clientHeight;
+      // scale the whole chart with the screen: 1 at ~1400px wide, bigger on large monitors, smaller on phones
+      scale = Math.min(1.9, Math.max(0.8, cw / 1400));
+      w = cw / scale; h = ch / scale;               // drawing happens in these scaled units
+      canvas.width = cw * dpr; canvas.height = ch * dpr;
+      ctx.setTransform(dpr * scale, 0, 0, dpr * scale, 0, 0);
       // live edge: just left of the device mockups on desktop, near the right edge on mobile
       const cr = canvas.getBoundingClientRect(), vr = visual && visual.getBoundingClientRect();
-      const gap = vr ? vr.left - cr.left : 0;
+      const gap = vr ? (vr.left - cr.left) / scale : 0;
       anchor = gap > w * 0.4 ? gap - 110 : w - 120;
       // pre-fill history so the chart starts full, with a few trades already on it
       const need = Math.ceil(anchor / W) + 8;
