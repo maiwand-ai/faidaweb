@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAIDA · Trading robots that protect your account first</title>
+  <meta name="description" content="FAIDA runs disciplined trading robots on your own MetaTrader 5 account. Tested strategies, profit protection on every trade, and your money never leaves your broker. Start free on a demo account.">
+  <meta property="og:title" content="FAIDA · Trading robots that protect your account first">
+  <meta property="og:description" content="Disciplined trading robots for MetaTrader 5. Start free on a demo account.">
+  <meta property="og:image" content="assets/logo.svg">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Icon set: 24px line icons (Lucide-style), used via <svg class="i"><use href="#i-name"/></svg> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><path d="M10 2h4"/><path d="m12 14 3-3"/><circle cx="12" cy="14" r="8"/></symbol>
+    <symbol id="i-trend-down" viewBox="0 0 24 24"><path d="M16 17h6v-6"/><path d="m22 17-8.5-8.5-5 5L2 7"/></symbol>
+    <symbol id="i-trend-up" viewBox="0 0 24 24"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></symbol>
+    <symbol id="i-news" viewBox="0 0 24 24"><path d="M15 18h-5"/><path d="M18 14h-8"/><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="10" y="6" rx="1"/></symbol>
+    <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M10.27 21a2 2 0 0 0 3.46 0"/><path d="M3.26 15.33A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.67C19.41 13.96 18 12.5 18 8A6 6 0 0 0 6 8c0 4.5-1.41 5.96-2.74 7.33"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 2 20 7H4z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M10 15V9"/><path d="M14 15V9"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.54 21.69a.5.5 0 0 0 .94-.03l6.5-19a.5.5 0 0 0-.64-.64l-19 6.5a.5.5 0 0 0-.03.94l7.93 3.18a2 2 0 0 1 1.11 1.11z"/><path d="m21.85 2.15-10.94 10.93"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  </svg>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a href="#top" class="brand" aria-label="FAIDA home">
+        <img src="assets/logo.svg" alt="" width="36" height="36">
+        <span class="brand__word">FAIDA</span>
+      </a>
+      <nav class="nav__links" aria-label="Main">
+        <a href="#robots">Robots</a>
+        <a href="#protection">Protection</a>
+        <a href="#testing">Testing</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav__cta">
+        <a href="#pricing" class="btn btn--ghost btn--sm hide-sm">Sign in</a>
+        <a href="#pricing" class="btn btn--primary btn--sm">Start free</a>
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="nav__mobile" hidden>
+      <a href="#robots">Robots</a><a href="#protection">Protection</a><a href="#testing">Testing</a>
+      <a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+      <a href="#pricing" class="btn btn--primary">Start free on demo</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <canvas class="hero__chart" aria-hidden="true"></canvas>
+      <div class="orb orb--1" aria-hidden="true"></div>
+      <div class="orb orb--2" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="pill reveal"><span class="pulse-dot"></span> Now in public demo testing</span>
+          <h1 class="reveal">Trading robots that<br><span class="rotator" aria-live="polite"><span class="rotator__word is-active">protect your account</span><span class="rotator__word">lock in your profit</span><span class="rotator__word">never sleep</span><span class="rotator__word">follow the rules</span></span><br>first.</h1>
+          <p class="lead reveal">FAIDA runs disciplined, tested strategies on <strong>your own MetaTrader&nbsp;5 account</strong>. Every trade has a stop. Profits get locked in. Your money never leaves your broker.</p>
+          <div class="hero__actions reveal">
+            <a href="#pricing" class="btn btn--primary btn--lg magnetic">Start free on a demo account <span class="arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a>
+            <a href="#see-it" class="btn btn--ghost btn--lg"><span class="play"></span> See it work</a>
+          </div>
+          <ul class="hero__trust reveal">
+            <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span> 14-day free trial</li>
+            <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span> No card for demo</li>
+            <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span> Cancel anytime</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual reveal" data-tilt>
+          <!-- Desktop dashboard mockup (illustrative sample data) -->
+          <div class="device device--laptop" role="img" aria-label="Illustration of the FAIDA dashboard: account equity, risk if every stop is hit, margin, today's result and open trades">
+            <div class="device__bar"><i></i><i></i><i></i></div>
+            <div class="mock mock--desk">
+              <div class="mk-top">
+                <span class="mk-brand"><img src="assets/logo.svg" alt=""> FAIDA</span>
+                <span class="mk-pill"><b class="mk-ok"><svg class="i"><use href="#i-check"/></svg></b> All systems OK · 6 robots</span>
+              </div>
+              <div class="mk-title">Home</div>
+              <div class="mk-sub">6 robots running · 3 open trades</div>
+              <div class="mk-tiles">
+                <div class="mk-tile"><span>Equity</span><strong data-live-equity>$25,480</strong><em>balance $25,210</em></div>
+                <div class="mk-tile"><span>At risk if every stop is hit</span><strong>$0</strong><em>all stops in profit</em></div>
+                <div class="mk-tile"><span>Margin</span><strong>Very safe</strong><em>level 2,140%</em></div>
+                <div class="mk-tile"><span>Today vs daily loss limit</span><strong class="mk-green" data-live-today>+$270.40</strong><i class="mk-bar"><b></b></i></div>
+              </div>
+              <div class="mk-grid">
+                <div class="mk-card">
+                  <div class="mk-card__h">Open trades (3)</div>
+                  <div class="mk-trade"><span class="mk-sym mk-sym--gold">XAU</span><span class="mk-tn">Gold<small><b class="mk-buy">Buy</b> · DCA robot</small></span><span class="mk-lock"><svg class="i"><use href="#i-lock"/></svg> locked</span><span class="mk-pnl" data-live-pnl="142.6">+$142.60</span></div>
+                  <div class="mk-trade"><span class="mk-sym mk-sym--nas">NAS</span><span class="mk-tn">US Tech 100<small><b class="mk-sell">Sell</b> · Reversal Trail</small></span><span class="mk-lock"><svg class="i"><use href="#i-lock"/></svg> locked</span><span class="mk-pnl" data-live-pnl="96.3">+$96.30</span></div>
+                  <div class="mk-trade"><span class="mk-sym mk-sym--fx">FX</span><span class="mk-tn">EURJPY<small><b class="mk-buy">Buy</b> · Range Reversal</small></span><span></span><span class="mk-pnl" data-live-pnl="31.5">+$31.50</span></div>
+                </div>
+                <div class="mk-card">
+                  <div class="mk-card__h">Equity, 30 days</div>
+                  <svg class="mk-spark" viewBox="0 0 200 80" preserveAspectRatio="none"><defs><linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ab4f0" stop-opacity=".35"/><stop offset="1" stop-color="#8ab4f0" stop-opacity="0"/></linearGradient></defs><path class="mk-spark__fill" d="M0 62 L14 58 L28 60 L42 50 L56 53 L70 44 L84 47 L98 38 L112 41 L126 33 L140 36 L154 26 L168 29 L182 20 L200 16 L200 80 L0 80Z" fill="url(#sparkFill)"/><path class="mk-spark__line" d="M0 62 L14 58 L28 60 L42 50 L56 53 L70 44 L84 47 L98 38 L112 41 L126 33 L140 36 L154 26 L168 29 L182 20 L200 16"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Phone mockup (illustrative sample data) -->
+          <div class="device device--phone float" role="img" aria-label="Illustration of the FAIDA phone app: equity and robots at a glance">
+            <div class="mock mock--phone">
+              <div class="mk-top"><span class="mk-brand"><img src="assets/logo.svg" alt=""> FAIDA</span></div>
+              <span class="mk-pill"><b class="mk-ok"><svg class="i"><use href="#i-check"/></svg></b> All systems OK</span>
+              <div class="mk-eq"><span>Equity</span><strong data-live-equity>$25,480</strong><em class="mk-green" data-live-today>+$270.40 today</em></div>
+              <div class="mk-robots">
+                <div class="mk-robot"><i class="mk-dot mk-dot--trade"></i><span>DCA · Gold<small>In a trade · profit locked</small></span></div>
+                <div class="mk-robot"><i class="mk-dot mk-dot--trade"></i><span>Reversal · US Tech<small>In a trade · profit locked</small></span></div>
+                <div class="mk-robot"><i class="mk-dot"></i><span>Grid · EURUSD<small>Watching: range market</small></span></div>
+                <div class="mk-robot"><i class="mk-dot"></i><span>Momentum · DAX<small>Waiting for a pullback</small></span></div>
+              </div>
+              <div class="mk-nav"><i class="is-on"></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="chip chip--1 float-slow"><span class="chip__dot chip__dot--green"></span>Profit locked · stop moved to +0.8R</div>
+          <div class="chip chip--2 float-slower"><span class="chip__dot chip__dot--blue"></span>6 robots running · all systems OK</div>
+          <p class="caption">Illustration · sample data</p>
+        </div>
+      </div>
+
+      <div class="container markets" aria-label="Markets FAIDA trades">
+        <div class="markets__head">
+          <span class="markets__live"><i></i> Markets the robots watch</span>
+          <span class="markets__note">20+ markets: forex, indices, metals, energy, crypto · sample prices</span>
+        </div>
+        <div class="markets__row">
+          <div class="mkt" data-price="2385.4" data-dec="2" data-chg="0.42">
+            <div class="mkt__top"><span class="mkt__name">Gold</span><span class="mkt__sym">XAU</span></div>
+            <div class="mkt__mid"><span class="mkt__price">2,385.40</span><span class="mkt__chg">+0.42%</span></div>
+            <svg class="mkt__spark" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="mkt__area"/><path class="mkt__line"/></svg>
+          </div>
+          <div class="mkt" data-price="18420.5" data-dec="1" data-chg="0.86">
+            <div class="mkt__top"><span class="mkt__name">US Tech 100</span><span class="mkt__sym">NAS</span></div>
+            <div class="mkt__mid"><span class="mkt__price">18,420.5</span><span class="mkt__chg">+0.86%</span></div>
+            <svg class="mkt__spark" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="mkt__area"/><path class="mkt__line"/></svg>
+          </div>
+          <div class="mkt" data-price="18210.3" data-dec="1" data-chg="-0.21">
+            <div class="mkt__top"><span class="mkt__name">DAX</span><span class="mkt__sym">GER40</span></div>
+            <div class="mkt__mid"><span class="mkt__price">18,210.3</span><span class="mkt__chg">-0.21%</span></div>
+            <svg class="mkt__spark" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="mkt__area"/><path class="mkt__line"/></svg>
+          </div>
+          <div class="mkt" data-price="163.42" data-dec="2" data-chg="0.18">
+            <div class="mkt__top"><span class="mkt__name">EURJPY</span><span class="mkt__sym">FX</span></div>
+            <div class="mkt__mid"><span class="mkt__price">163.42</span><span class="mkt__chg">+0.18%</span></div>
+            <svg class="mkt__spark" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="mkt__area"/><path class="mkt__line"/></svg>
+          </div>
+          <div class="mkt" data-price="78.35" data-dec="2" data-chg="-0.64">
+            <div class="mkt__top"><span class="mkt__name">US Oil</span><span class="mkt__sym">WTI</span></div>
+            <div class="mkt__mid"><span class="mkt__price">78.35</span><span class="mkt__chg">-0.64%</span></div>
+            <svg class="mkt__spark" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="mkt__area"/><path class="mkt__line"/></svg>
+          </div>
+          <div class="mkt" data-price="67240" data-dec="0" data-chg="1.35">
+            <div class="mkt__top"><span class="mkt__name">Bitcoin</span><span class="mkt__sym">BTC</span></div>
+            <div class="mkt__mid"><span class="mkt__price">67,240</span><span class="mkt__chg">+1.35%</span></div>
+            <svg class="mkt__spark" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><path class="mkt__area"/><path class="mkt__line"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats">
+      <div class="container stats__grid">
+        <div class="stat reveal"><span class="stat__num" data-count="4">0</span><span class="stat__label">robot types</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="5">0</span><span class="stat__label">tested strategy recipes</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="20" data-suffix="+">0</span><span class="stat__label">markets: forex, indices, metals, energy, crypto</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="30" data-suffix="s">0</span><span class="stat__label">between checks on every open trade</span></div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">How it works</span>
+          <h2>From download to your first robot in minutes</h2>
+          <p>FAIDA runs on your Windows PC or VPS, next to MetaTrader&nbsp;5. You stay in control the whole time.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">1</span>
+            <h3>Install and connect</h3>
+            <p>Download FAIDA, sign in with your licence and connect your MetaTrader&nbsp;5 account. Start with a free demo account; no real money needed.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">2</span>
+            <h3>Pick your robots</h3>
+            <p>Answer four simple questions and FAIDA suggests safe settings for your account size, or choose a robot and a tested recipe for each market yourself.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">3</span>
+            <h3>Watch and stay in charge</h3>
+            <p>Follow every decision live on your phone, get alerts, pause new trades or hit the emergency stop at any moment.</p>
+          </li>
+          <svg class="steps__line" viewBox="0 0 1000 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0 5 H1000"/></svg>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ ROBOTS ============ -->
+    <section class="section section--alt" id="robots">
+      <div class="container split">
+        <div>
+          <div class="section__head section__head--left reveal">
+            <span class="eyebrow">The robots</span>
+            <h2>A robot for every kind of market</h2>
+            <p>Each robot reads the market first: trending, ranging or wild. It only trades when its rules say the odds are on its side.</p>
+          </div>
+          <div class="robots">
+            <article class="robot reveal">
+              <div class="robot__icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div>
+              <div><h3>DCA robot <span class="tag tag--green">Trends &amp; pullbacks</span></h3>
+              <p>Opens when its signals agree, adds smaller trades at better prices if needed, then closes everything together at a profit.</p></div>
+            </article>
+            <article class="robot reveal">
+              <div class="robot__icon"><svg viewBox="0 0 24 24"><path d="M3 9c3-3 6 3 9 0s6 3 9 0M3 15c3-3 6 3 9 0s6 3 9 0"/></svg></div>
+              <div><h3>Grid robot <span class="tag">Sideways markets</span></h3>
+              <p>Places buy and sell levels at fixed steps and takes a small profit each time price moves between them.</p></div>
+            </article>
+            <article class="robot reveal">
+              <div class="robot__icon"><svg viewBox="0 0 24 24"><path d="M4 20V4M4 20h16M7 15l4-4 3 3 5-6"/></svg></div>
+              <div><h3>Momentum Rider <span class="tag tag--amber">Fully automatic</span></h3>
+              <p>You choose only the lot size. It reads the 1-, 3- and 6-month trend, buys dips in uptrends and never adds to a losing trade.</p></div>
+            </article>
+            <article class="robot reveal">
+              <div class="robot__icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+              <div><h3>AI Trader <span class="tag tag--amber">Claude or GPT</span></h3>
+              <p>An AI model analyses each closed candle and suggests a trade. FAIDA's risk rules decide whether it's allowed and how big it is.</p></div>
+            </article>
+          </div>
+        </div>
+        <div class="split__visual reveal" data-tilt>
+          <div class="device device--phone device--tall">
+            <img src="assets/app-robot-types.png" alt="Choosing a robot type in FAIDA" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROTECTION ============ -->
+    <section class="section" id="protection">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Profit protection</span>
+          <h2>A winning trade shouldn't turn into a loss</h2>
+          <p>Once a trade is well on its way to its target, FAIDA moves the stop into profit and keeps raising it as price climbs. Watch how it works.</p>
+        </div>
+
+        <div class="lock-demo reveal" id="lockDemo">
+          <svg viewBox="0 0 800 340" class="lock-demo__svg" aria-label="Animation: price rises, the stop follows into profit, then price falls back and the trade closes in profit">
+            <defs>
+              <linearGradient id="pathGrad" x1="0" x2="1"><stop offset="0" stop-color="#8ab4f0"/><stop offset="1" stop-color="#6fdc8c"/></linearGradient>
+              <linearGradient id="profitZone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fdc8c" stop-opacity=".18"/><stop offset="1" stop-color="#6fdc8c" stop-opacity="0"/></linearGradient>
+            </defs>
+            <line class="ld-target" x1="40" x2="760" y1="60" y2="60"/>
+            <text class="ld-label" x="760" y="50" text-anchor="end">Take profit</text>
+            <line class="ld-entry" x1="40" x2="760" y1="230" y2="230"/>
+            <text class="ld-label" x="48" y="250">Entry</text>
+            <rect class="ld-zone" x="40" y="60" width="720" height="170" fill="url(#profitZone)"/>
+            <path class="ld-price" d="M40 230 C 90 240, 120 215, 160 205 S 230 190, 270 170 S 340 150, 380 125 S 450 95, 490 100 S 540 120, 580 140 S 650 170, 700 192 S 740 205, 760 210"/>
+            <line class="ld-stop" x1="40" x2="760" y1="300" y2="300"/>
+            <text class="ld-stop-label" x="760" y="292" text-anchor="end">Stop: −1R</text>
+            <circle class="ld-dot" r="7" cx="40" cy="230"/>
+          </svg>
+          <div class="lock-demo__legend">
+            <span><i class="lg lg--price"></i>Price</span>
+            <span><i class="lg lg--stop"></i>Protective stop</span>
+            <span class="lock-demo__status" aria-live="polite">Trade opened</span>
+            <button class="btn btn--ghost btn--sm" id="replayLock">Replay</button>
+          </div>
+        </div>
+
+        <div class="cards3">
+          <div class="card reveal"><div class="card__icon"><svg class="i"><use href="#i-shield"/></svg></div><h3>A stop on every trade</h3><p>Every trade is sent to your broker with a stop-loss, so it's protected even if your PC or internet goes down.</p></div>
+          <div class="card reveal"><div class="card__icon"><svg class="i"><use href="#i-lock"/></svg></div><h3>Profit lock</h3><p>Halfway to target, the stop moves into profit and keeps half of the gain, rising with price.</p></div>
+          <div class="card reveal"><div class="card__icon"><svg class="i"><use href="#i-timer"/></svg></div><h3>Cool-off after a loss</h3><p>After a losing trade, a robot can wait before trading again instead of jumping straight back in.</p></div>
+          <div class="card reveal"><div class="card__icon"><svg class="i"><use href="#i-trend-down"/></svg></div><h3>Daily loss limit</h3><p>See today's result against your own limit. Hit it and robots stop opening new trades.</p></div>
+          <div class="card reveal"><div class="card__icon"><svg class="i"><use href="#i-news"/></svg></div><h3>News &amp; session guard</h3><p>Robots step aside around major economic news and thin market opens.</p></div>
+          <div class="card reveal card--danger"><div class="card__icon"><svg class="i"><use href="#i-power"/></svg></div><h3>Emergency stop</h3><p>One button closes every FAIDA trade and pauses new ones. Your own manual trades are never touched.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTING ============ -->
+    <section class="section section--alt" id="testing">
+      <div class="container split split--reverse">
+        <div class="split__visual reveal">
+          <div class="gauge-card">
+            <h3>Validation report</h3>
+            <p class="muted small">Every robot is tested on its own market before you run it</p>
+            <ul class="checks">
+              <li data-delay="0"><span class="check-ic"></span>Backtest on 10,000 bars of real broker prices<b>PASS</b></li>
+              <li data-delay="1"><span class="check-ic"></span>Real spreads, commissions &amp; swaps<b>PASS</b></li>
+              <li data-delay="2"><span class="check-ic"></span>Walk-forward: tested on data it never saw<b>PASS</b></li>
+              <li data-delay="3"><span class="check-ic"></span>Trending, ranging &amp; volatile periods (2 years)<b>PASS</b></li>
+              <li data-delay="4"><span class="check-ic"></span>Monte Carlo: 1,000 reshuffled histories<b>PASS</b></li>
+              <li data-delay="5"><span class="check-ic"></span>Settings stability check<b>PASS</b></li>
+            </ul>
+            <p class="tiny muted">Illustration of the report's checks. Past and simulated results don't guarantee future results.</p>
+          </div>
+        </div>
+        <div>
+          <div class="section__head section__head--left reveal">
+            <span class="eyebrow">Tested, not guessed</span>
+            <h2>We try to break every strategy before you trust it</h2>
+            <p>Most trading bots show one beautiful backtest. FAIDA puts every robot through the same tough checks, on the market it will actually trade, using your broker's real costs.</p>
+          </div>
+          <ul class="bullets reveal">
+            <li><strong>One recipe doesn't fit every market.</strong> FAIDA matches the strategy to each market: what works on the DAX can fail on gold.</li>
+            <li><strong>Honest verdicts.</strong> If no setup holds up on a market, FAIDA tells you, rather than trading it anyway.</li>
+            <li><strong>Demo first, always.</strong> Real-money trading unlocks only after you've watched your robots on a demo account.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEE IT ============ -->
+    <section class="section" id="see-it">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">See it in action</span>
+          <h2>Your trading desk, in your pocket</h2>
+          <p>Check robots, open trades and alerts from any phone. Every decision comes with a plain-English reason.</p>
+        </div>
+        <div class="feed-wrap reveal">
+          <div class="feed" role="img" aria-label="Illustration: a live feed of robot decisions, each with a plain-English reason">
+            <div class="feed__head"><span class="mk-brand"><img src="assets/logo.svg" alt=""> FAIDA</span><span class="feed__live"><i></i> Live</span></div>
+            <ul class="feed__list" aria-hidden="true"></ul>
+          </div>
+          <div class="feed-side">
+            <div class="feed-point"><span class="ic-tile"><svg class="i"><use href="#i-message"/></svg></span><div><h3>Every decision explained</h3><p>Why a robot traded, or why it waited: "Range market, 1 of 3 indicators agreed, 2 needed."</p></div></div>
+            <div class="feed-point"><span class="ic-tile"><svg class="i"><use href="#i-bell"/></svg></span><div><h3>Alerts where you are</h3><p>Trades opened and closed, profit locked, daily summary, on your phone or Telegram.</p></div></div>
+            <div class="feed-point"><span class="ic-tile"><svg class="i"><use href="#i-pulse"/></svg></span><div><h3>Health checks</h3><p>FAIDA watches its own connection to MetaTrader and restarts a robot that stops responding.</p></div></div>
+          </div>
+        </div>
+        <p class="center muted small">Illustration · sample data</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTROL ============ -->
+    <section class="section section--alt">
+      <div class="container control">
+        <div class="control__item reveal"><span class="big-ic"><svg class="i"><use href="#i-bank"/></svg></span><h3>Your money stays with your broker</h3><p>FAIDA never holds, moves or withdraws funds. It trades your MetaTrader&nbsp;5 account, and you can switch it off any time.</p></div>
+        <div class="control__item reveal"><span class="big-ic"><svg class="i"><use href="#i-monitor"/></svg></span><h3>Runs on your own machine</h3><p>Your PC or a Windows VPS. Your passwords and API keys stay on your computer, not on our servers.</p></div>
+        <div class="control__item reveal"><span class="big-ic"><svg class="i"><use href="#i-plug"/></svg></span><h3>Works with MT5 brokers</h3><p>Any broker that offers MetaTrader&nbsp;5: forex, indices, metals, energy and crypto CFDs.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Pricing</span>
+          <h2>Start free. Upgrade when you're ready for real money.</h2>
+          <p>Every plan starts with a 14-day free trial on demo accounts. No card needed for demo.</p>
+          <div class="billing" role="group" aria-label="Billing period">
+            <button class="billing__opt is-active" data-period="monthly">Monthly</button>
+            <button class="billing__opt" data-period="yearly">Yearly <span class="save">2 months free</span></button>
+            <span class="billing__thumb" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="plans">
+          <article class="plan reveal">
+            <h3>Starter</h3>
+            <p class="plan__for">Try automated trading on one or two markets</p>
+            <div class="price"><span class="price__cur">$</span><span class="price__num" data-monthly="39" data-yearly="390">39</span><span class="price__per">/month</span></div>
+            <p class="price__note" data-monthly="Billed monthly" data-yearly="$390 billed yearly">Billed monthly</p>
+            <a href="#checkout-starter" class="btn btn--ghost btn--block checkout" data-plan="Starter">Start free trial</a>
+            <ul class="feats">
+              <li>Up to 3 robots running</li><li>DCA and Grid robots</li><li>All 5 strategy recipes</li>
+              <li>Profit lock &amp; daily loss limit</li><li>Phone dashboard &amp; alerts</li><li>Demo and live accounts</li>
+            </ul>
+          </article>
+
+          <article class="plan plan--featured reveal">
+            <span class="plan__badge">Most popular</span>
+            <h3>Pro</h3>
+            <p class="plan__for">A full portfolio across many markets</p>
+            <div class="price"><span class="price__cur">$</span><span class="price__num" data-monthly="79" data-yearly="790">79</span><span class="price__per">/month</span></div>
+            <p class="price__note" data-monthly="Billed monthly" data-yearly="$790 billed yearly">Billed monthly</p>
+            <a href="#checkout-pro" class="btn btn--primary btn--block checkout" data-plan="Pro">Start free trial</a>
+            <ul class="feats">
+              <li><strong>Up to 12 robots running</strong></li><li>All robot types, incl. Momentum Rider</li><li>AI Trader (bring your own Claude or OpenAI key)</li>
+              <li>Validation reports per market</li><li>Telegram alerts</li><li>Priority email support</li>
+            </ul>
+          </article>
+
+          <article class="plan reveal">
+            <h3>Unlimited</h3>
+            <p class="plan__for">For serious traders and several accounts</p>
+            <div class="price"><span class="price__cur">$</span><span class="price__num" data-monthly="149" data-yearly="1490">149</span><span class="price__per">/month</span></div>
+            <p class="price__note" data-monthly="Billed monthly" data-yearly="$1,490 billed yearly">Billed monthly</p>
+            <a href="#checkout-unlimited" class="btn btn--ghost btn--block checkout" data-plan="Unlimited">Start free trial</a>
+            <ul class="feats">
+              <li><strong>Unlimited robots</strong></li><li>Everything in Pro</li><li>Up to 3 MT5 accounts</li>
+              <li>Extra trade slots per robot</li><li>Early access to new robots</li><li>1-to-1 setup call</li>
+            </ul>
+          </article>
+        </div>
+        <p class="center muted small reveal">Prices in USD. Taxes calculated at checkout. You can cancel anytime; when a subscription ends, robots stop opening new trades but keep managing open ones.</p>
+      </div>
+    </section>
+
+    <!-- ============ TRACK RECORD ============ -->
+    <section class="section section--alt">
+      <div class="container record reveal">
+        <div>
+          <span class="eyebrow">Built in the open</span>
+          <h2>A live track record, not screenshots</h2>
+          <p>We're running FAIDA on public demo accounts right now, wins and losses alike. A verified, third-party tracked record will be published here before launch.</p>
+        </div>
+        <a href="#" class="btn btn--ghost btn--lg" aria-disabled="true" onclick="return false">Verified results: coming soon</a>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <div class="section__head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions, answered honestly</h2>
+        </div>
+        <div class="faq">
+          <details class="reveal"><summary>Will FAIDA make me money?</summary><p>No one can promise that, and you should be wary of anyone who does. FAIDA gives you disciplined, tested robots with strong risk controls. Markets can still go against any strategy, and you can lose money. That's why every plan starts on a demo account.</p></details>
+          <details class="reveal"><summary>What do I need to run it?</summary><p>A Windows 10/11 PC or a Windows VPS that can stay on, and a MetaTrader&nbsp;5 account with a broker of your choice. For 24/5 trading we recommend a small VPS.</p></details>
+          <details class="reveal"><summary>Does FAIDA have access to my money?</summary><p>No. FAIDA places trades on your MT5 account from your own computer. It can't deposit, withdraw or move funds, and your login details never leave your machine.</p></details>
+          <details class="reveal"><summary>What happens if my PC turns off?</summary><p>Every trade is sent to your broker with a stop-loss and a take-profit, so open trades stay protected. FAIDA restarts its robots on its own when your PC comes back.</p></details>
+          <details class="reveal"><summary>How does the AI Trader work, and does it cost extra?</summary><p>You connect your own Claude or OpenAI API key, so you pay the AI provider directly for what you use. The AI only suggests trades; FAIDA's risk rules decide whether a trade is allowed and how large it is.</p></details>
+          <details class="reveal"><summary>Can I cancel anytime?</summary><p>Yes. Cancel from your account page in two clicks. When a subscription ends, robots stop opening new trades but keep managing the ones already open, so nothing is left unprotected.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="cta">
+      <div class="orb orb--3" aria-hidden="true"></div>
+      <div class="container cta__inner reveal">
+        <img src="assets/logo.svg" alt="" width="64" height="64" class="cta__logo">
+        <h2>Let disciplined robots do the watching.</h2>
+        <p>Start free on a demo account today. No card needed.</p>
+        <a href="#pricing" class="btn btn--primary btn--lg magnetic">Start your free trial <span class="arrow"><svg class="i"><use href="#i-arrow"/></svg></span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="#top" class="brand"><img src="assets/logo.svg" alt="" width="32" height="32"><span class="brand__word">FAIDA</span></a>
+        <p class="muted small">Disciplined trading robots for MetaTrader&nbsp;5.</p>
+        <p class="muted small"><a href="mailto:hello@faidabot.com">hello@faidabot.com</a></p>
+      </div>
+      <div><h4>Product</h4><a href="#robots">Robots</a><a href="#protection">Protection</a><a href="#testing">Testing</a><a href="#pricing">Pricing</a></div>
+      <div><h4>Help</h4><a href="#faq">FAQ</a><a href="#how">Getting started</a><a href="mailto:hello@faidabot.com">Contact</a></div>
+      <div><h4>Legal</h4><a href="legal.html#risk">Risk disclosure</a><a href="legal.html#terms">Terms of service</a><a href="legal.html#privacy">Privacy policy</a></div>
+    </div>
+    <div class="container risk">
+      <p><strong>Risk warning:</strong> Trading forex, CFDs and other leveraged products carries a high level of risk and may not be suitable for everyone. You can lose more than you deposit with some brokers. FAIDA is trading software, not investment advice, and is not a broker or fund manager. Backtests and simulated results are hypothetical and do not guarantee future results. Only trade with money you can afford to lose.</p>
+      <p class="muted">© <span id="year"></span> FAIDA · faidabot.com</p>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="script.js" defer></script>
+</body>
+</html>
